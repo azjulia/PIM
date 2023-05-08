@@ -1,0 +1,39 @@
+Residentes
+
+ CREATE TABLE residentes (
+  id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  phone_number VARCHAR(20) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  unit_number INT NOT NULL,
+  PRIMARY KEY (id)
+); 
+
+Funcionarios
+
+CREATE TABLE employees (
+  id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  phone_number VARCHAR(20) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  position VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+); 
+
+Atividades 
+
+CREATE TABLE activity_bookings (
+  id INT NOT NULL AUTO_INCREMENT,
+  activity_name VARCHAR(100) NOT NULL,
+  date DATE NOT NULL,
+  time TIME NOT NULL,
+  resident_id INT NOT NULL,
+  employee_id INT NOT NULL,
+  number_of_guests INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (resident_id) REFERENCES residents(id),
+  FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
+
